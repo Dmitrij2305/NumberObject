@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <div id="newTable"></div>
+
+  <script src="const.js"></script>
+  <script>
+
+    function newGroups(obj, cont) {
+      let table = document.createElement('table')
+      for (let key in obj) {
+        let h = document.createElement('tr')
+        h.innerHTML = `<th colspan="2">${key}</th>`
+        table.append(h)
+        obj[key].forEach(function(item) {
+          let row = document.createElement('tr')
+          row.innerHTML = `
+          <td>${item[0]}</td>
+          <td>${item[1]}</td>
+          `
+          table.append(row)
+        })
+      }
+      cont.append(table)
+    }
+    newGroups(PHONE_NUMBER, newTable)
+
+  </script>
+</body>
+</html>
